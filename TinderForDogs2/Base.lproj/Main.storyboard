@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TinderForDogs2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NKt-bx-KgN">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czz-8A-V0Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4q-13-eD9">
+                                                <rect key="frame" x="322" y="0.0" width="45" height="46"/>
+                                                <state key="normal" image="dogcircle"/>
+                                                <connections>
+                                                    <action selector="dogButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="phJ-1a-d5F"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="j4q-13-eD9" secondAttribute="trailing" constant="8" id="CJQ-4h-h2g"/>
+                                            <constraint firstAttribute="height" constant="50" id="Naa-1T-O57"/>
+                                            <constraint firstItem="j4q-13-eD9" firstAttribute="top" secondItem="czz-8A-V0Y" secondAttribute="top" id="QbQ-YD-YBO"/>
+                                            <constraint firstAttribute="bottom" secondItem="j4q-13-eD9" secondAttribute="bottom" constant="4" id="o7z-YG-xIz"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evZ-vA-Ye9">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="300"/>
+                                        <color key="backgroundColor" red="1" green="0.85009565580000002" blue="0.99428034249999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="FRg-Jg-Ved"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFb-8l-9CW">
+                                        <rect key="frame" x="0.0" y="350" width="375" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doggie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ush-AY-vuT">
+                                                <rect key="frame" x="8" y="8" width="162.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chiuaua mix" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRy-7U-Iy7">
+                                                <rect key="frame" x="259.5" y="8" width="107.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ush-AY-vuT" firstAttribute="leading" secondItem="tFb-8l-9CW" secondAttribute="leading" constant="8" id="2NM-xa-uPh"/>
+                                            <constraint firstItem="NRy-7U-Iy7" firstAttribute="top" secondItem="tFb-8l-9CW" secondAttribute="top" constant="8" id="8c9-ay-kEt"/>
+                                            <constraint firstAttribute="trailing" secondItem="NRy-7U-Iy7" secondAttribute="trailing" constant="8" id="Q4c-BA-pbj"/>
+                                            <constraint firstItem="ush-AY-vuT" firstAttribute="top" secondItem="tFb-8l-9CW" secondAttribute="top" constant="8" id="gVi-DB-Sc9"/>
+                                            <constraint firstAttribute="height" constant="50" id="o1z-rJ-JxW"/>
+                                            <constraint firstAttribute="bottom" secondItem="ush-AY-vuT" secondAttribute="bottom" constant="8" id="rJO-Qe-G5H"/>
+                                            <constraint firstAttribute="bottom" secondItem="NRy-7U-Iy7" secondAttribute="bottom" constant="8" id="tI1-lK-cTa"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nan-vc-Bg3">
+                                        <rect key="frame" x="0.0" y="400" width="375" height="80"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the doggie. Description of the doggie. Description of the doggie. Description of the doggie." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcI-bM-Veb">
+                                                <rect key="frame" x="8" y="8" width="359" height="64"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="0Lr-88-PBx"/>
+                                            <constraint firstItem="UcI-bM-Veb" firstAttribute="leading" secondItem="Nan-vc-Bg3" secondAttribute="leading" constant="8" id="14l-wr-dih"/>
+                                            <constraint firstAttribute="bottom" secondItem="UcI-bM-Veb" secondAttribute="bottom" constant="8" id="3EP-gS-Ncu"/>
+                                            <constraint firstAttribute="trailing" secondItem="UcI-bM-Veb" secondAttribute="trailing" constant="8" id="BbH-DH-ZNi"/>
+                                            <constraint firstItem="UcI-bM-Veb" firstAttribute="top" secondItem="Nan-vc-Bg3" secondAttribute="top" constant="8" id="Cpn-QH-n75"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWE-Jb-J7s">
+                                        <rect key="frame" x="0.0" y="480" width="375" height="66"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTW-Bm-8kd">
+                                                <rect key="frame" x="8" y="10.5" width="45" height="45"/>
+                                                <state key="normal" image="no"/>
+                                                <connections>
+                                                    <action selector="noButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WCx-Qe-K9J"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llc-jf-3lo">
+                                                <rect key="frame" x="322" y="8" width="45" height="50"/>
+                                                <state key="normal" image="heart"/>
+                                                <connections>
+                                                    <action selector="loveButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ubG-Up-2HI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRr-OD-eEY">
+                                                <rect key="frame" x="165" y="10.5" width="45" height="45"/>
+                                                <state key="normal" image="chat"/>
+                                                <connections>
+                                                    <action selector="chatButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tWa-Fj-e7u"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="llc-jf-3lo" firstAttribute="top" secondItem="lWE-Jb-J7s" secondAttribute="top" constant="8" id="456-RD-f6T"/>
+                                            <constraint firstAttribute="trailing" secondItem="llc-jf-3lo" secondAttribute="trailing" constant="8" id="8Y7-ll-LWM"/>
+                                            <constraint firstItem="llc-jf-3lo" firstAttribute="leading" secondItem="bRr-OD-eEY" secondAttribute="trailing" constant="112" id="Q72-ft-c9g"/>
+                                            <constraint firstAttribute="bottom" secondItem="llc-jf-3lo" secondAttribute="bottom" constant="8" id="hro-uS-G1q"/>
+                                            <constraint firstItem="bRr-OD-eEY" firstAttribute="leading" secondItem="nTW-Bm-8kd" secondAttribute="trailing" constant="112" id="hvR-PA-3os"/>
+                                            <constraint firstItem="llc-jf-3lo" firstAttribute="centerY" secondItem="nTW-Bm-8kd" secondAttribute="centerY" id="kQu-zE-47W"/>
+                                            <constraint firstItem="bRr-OD-eEY" firstAttribute="centerY" secondItem="nTW-Bm-8kd" secondAttribute="centerY" id="pfj-KM-FIc"/>
+                                            <constraint firstItem="nTW-Bm-8kd" firstAttribute="leading" secondItem="lWE-Jb-J7s" secondAttribute="leading" constant="8" id="px9-Zx-khC"/>
+                                            <constraint firstAttribute="height" constant="66" id="sqs-kj-YMU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTA-Hd-ZXz">
+                                        <rect key="frame" x="0.0" y="546" width="375" height="101"/>
+                                        <subviews>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xaS-3i-02y">
+                                                <rect key="frame" x="8" y="8" width="359" height="85"/>
+                                            </mapView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="xaS-3i-02y" firstAttribute="top" secondItem="YTA-Hd-ZXz" secondAttribute="top" constant="8" id="4Nh-62-cJs"/>
+                                            <constraint firstAttribute="bottom" secondItem="xaS-3i-02y" secondAttribute="bottom" constant="8" id="AAe-50-00N"/>
+                                            <constraint firstAttribute="trailing" secondItem="xaS-3i-02y" secondAttribute="trailing" constant="8" id="gq4-iL-Bwd"/>
+                                            <constraint firstItem="xaS-3i-02y" firstAttribute="leading" secondItem="YTA-Hd-ZXz" secondAttribute="leading" constant="8" id="xPh-zW-d1W"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NKt-bx-KgN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IrY-BX-cs7"/>
+                            <constraint firstItem="NKt-bx-KgN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="f8m-1a-SRX"/>
+                            <constraint firstItem="NKt-bx-KgN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="l1Z-99-fcD"/>
+                            <constraint firstItem="NKt-bx-KgN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="nn5-Zt-9aT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="dogBreedLabel" destination="NRy-7U-Iy7" id="TaY-FX-GnD"/>
+                        <outlet property="dogButton" destination="j4q-13-eD9" id="sNd-Bg-vn7"/>
+                        <outlet property="dogDescriptionLabel" destination="UcI-bM-Veb" id="HTh-fu-tJb"/>
+                        <outlet property="dogNameLabel" destination="ush-AY-vuT" id="WPW-6N-der"/>
+                        <outlet property="mapView" destination="xaS-3i-02y" id="CNa-GN-prX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chat" width="45" height="45"/>
+        <image name="dogcircle" width="45" height="45"/>
+        <image name="heart" width="45" height="45"/>
+        <image name="no" width="45" height="45"/>
+    </resources>
+</document>
