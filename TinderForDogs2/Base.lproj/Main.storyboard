@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -178,19 +179,70 @@
         <!--Table View Controller-->
         <scene sceneID="Ach-82-Qjf">
             <objects>
-                <tableViewController id="eHI-nQ-RoC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EXY-Kg-uUR">
+                <tableViewController id="eHI-nQ-RoC" customClass="TableViewController" customModule="TinderForDogs2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EXY-Kg-uUR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fYe-sI-ymz">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="110" id="fYe-sI-ymz" customClass="CustomCell" customModule="TinderForDogs2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fYe-sI-ymz" id="Kc4-GI-9pR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n5j-6y-Gzy">
+                                            <rect key="frame" x="16" y="8" width="69" height="93.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="69" id="BXp-Pl-5Xe"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doggy Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEd-ZA-C52">
+                                            <rect key="frame" x="93" y="44.5" width="100" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pw1-hf-mRI">
+                                            <rect key="frame" x="235" y="29" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="dEd-33-qMz"/>
+                                                <constraint firstAttribute="height" constant="50" id="sa0-Wl-481"/>
+                                            </constraints>
+                                            <state key="normal" image="emailPic"/>
+                                            <connections>
+                                                <action selector="emailButtonClicked:" destination="fYe-sI-ymz" eventType="touchUpInside" id="aX2-Qq-C5m"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPV-iv-N7W">
+                                            <rect key="frame" x="293" y="29" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="x9n-1B-yoR"/>
+                                                <constraint firstAttribute="height" constant="50" id="xyx-AN-Ec2"/>
+                                            </constraints>
+                                            <state key="normal" image="phoneIcon"/>
+                                            <connections>
+                                                <action selector="callButtonClicked:" destination="fYe-sI-ymz" eventType="touchUpInside" id="Esz-50-zgH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="yPV-iv-N7W" secondAttribute="trailing" constant="16" id="9Ys-zm-KUY"/>
+                                        <constraint firstItem="yPV-iv-N7W" firstAttribute="centerY" secondItem="n5j-6y-Gzy" secondAttribute="centerY" id="LKH-yd-PTr"/>
+                                        <constraint firstItem="n5j-6y-Gzy" firstAttribute="top" secondItem="Kc4-GI-9pR" secondAttribute="top" constant="8" id="QbP-vx-ROC"/>
+                                        <constraint firstAttribute="bottom" secondItem="n5j-6y-Gzy" secondAttribute="bottom" constant="8" id="bYo-Dp-YeH"/>
+                                        <constraint firstItem="yPV-iv-N7W" firstAttribute="leading" secondItem="pw1-hf-mRI" secondAttribute="trailing" constant="8" id="cGx-4m-gpg"/>
+                                        <constraint firstItem="pw1-hf-mRI" firstAttribute="centerY" secondItem="n5j-6y-Gzy" secondAttribute="centerY" id="cWH-WG-zqU"/>
+                                        <constraint firstItem="ZEd-ZA-C52" firstAttribute="centerY" secondItem="n5j-6y-Gzy" secondAttribute="centerY" id="ePQ-IO-BL0"/>
+                                        <constraint firstItem="n5j-6y-Gzy" firstAttribute="leading" secondItem="Kc4-GI-9pR" secondAttribute="leading" constant="16" id="q5y-Fk-G0J"/>
+                                        <constraint firstItem="ZEd-ZA-C52" firstAttribute="leading" secondItem="n5j-6y-Gzy" secondAttribute="trailing" constant="8" id="zV3-nw-Ki5"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dogNameLabel" destination="ZEd-ZA-C52" id="79Z-0M-Kp7"/>
+                                    <outlet property="smallImageView" destination="n5j-6y-Gzy" id="SuT-hS-4mj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -201,13 +253,15 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ykf-CA-8VB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="922" y="133"/>
+            <point key="canvasLocation" x="920.79999999999995" y="132.68365817091455"/>
         </scene>
     </scenes>
     <resources>
         <image name="chat" width="45" height="45"/>
         <image name="dogcircle" width="45" height="45"/>
+        <image name="emailPic" width="50" height="50"/>
         <image name="heart" width="45" height="45"/>
         <image name="no" width="45" height="45"/>
+        <image name="phoneIcon" width="50" height="50"/>
     </resources>
 </document>

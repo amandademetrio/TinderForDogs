@@ -47,12 +47,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loveButtonPressed(_ sender: UIButton) {
-        if self.dogs[dogNumber]["phone"] as! String == "N/A" {
-            sendPupEmail(self.dogs[dogNumber]["email"] as! String,self.dogs[dogNumber]["name"] as! String)
-        }
-        else if self.dogs[dogNumber]["email"] as! String == "N/A" {
-            sendPupCall(self.dogs[dogNumber]["phone"] as! String)
-        }
         addYesPupToCoreData(self.dogs[dogNumber])
         loadNextDog()
     }
@@ -96,9 +90,20 @@ class ViewController: UIViewController {
                     let imageUrl = self.dogs[self.dogNumber]["picture"] as? String
                     let url = URL(string:imageUrl!)
                     do {
+                        //setting image from URL
                         let data = try Data(contentsOf: url!)
                         self.mainImageView.image = UIImage(data: data)
                         self.mainImageView.contentMode = .scaleAspectFit
+                        
+                        self.mainImageView.isUserInteractionEnabled = true
+                        
+                        let swipeRight = UISwipeGestureRecognizer(target:self, action: #selector(self.rightSwipe(Sender:)))
+                        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+                        self.mainImageView.addGestureRecognizer(swipeRight)
+                        
+                        let swipeLeft = UISwipeGestureRecognizer(target:self, action: #selector(self.leftSwipe(Sender:)))
+                        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+                        self.mainImageView.addGestureRecognizer(swipeLeft)
                     }
                     catch {
                         print(error)
@@ -113,6 +118,40 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @objc func rightSwipe(Sender: UISwipeGestureRecognizer) {
+        addYesPupToCoreData(self.dogs[dogNumber])
+        loadNextDog()
+    }
+    
+    @objc func leftSwipe(Sender: UISwipeGestureRecognizer) {
+        markingPupAsNo(self.dogs[dogNumber])
+        loadNextDog()
+    }
+    
+    func fetchSavedPups() -> [Dog] {
+        var data:[Dog] = []
+        let dogRequest: NSFetchRequest = Dog.fetchRequest()
+        do {
+            let results = try context.fetch(dogRequest)
+            for item in results {
+                if item.isLiked == true {
+                    data.append(item)
+                    }
+                }
+            }
+        catch {
+            print("Errors are \(error)")
+        }
+        return data
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tableVC = segue.destination as! TableViewController
+        tableVC.delegate = self
+        tableVC.dogs = fetchSavedPups()
+    }
+    
 }
 
 extension ViewController: MKMapViewDelegate {
@@ -184,7 +223,7 @@ extension ViewController: MFMailComposeViewControllerDelegate {
         let pup = Dog(context: context)
         pup.dogID = dogDict["_id"] as? String
         pup.dogName = dogDict["name"] as? String
-        pup.image = dogDict["image"] as? String
+        pup.image = dogDict["picture"] as? String
         pup.dogLat = (dogDict["lat"] as? Double)!
         pup.dogLong = (dogDict["long"] as? Double)!
         pup.isLiked = true
@@ -193,7 +232,8 @@ extension ViewController: MFMailComposeViewControllerDelegate {
     
     //func load next dog
     func loadNextDog() {
-      print("called load next dog")
+        dogNumber += 1
+        self.viewDidLoad()
     }
     
     func markingPupAsNo(_ dogDict: NSDictionary) {
@@ -201,7 +241,7 @@ extension ViewController: MFMailComposeViewControllerDelegate {
         let pup = Dog(context: context)
         pup.dogID = dogDict["_id"] as? String
         pup.dogName = dogDict["name"] as? String
-        pup.image = dogDict["image"] as? String
+        pup.image = dogDict["picture"] as? String
         pup.dogLat = (dogDict["lat"] as? Double)!
         pup.dogLong = (dogDict["long"] as? Double)!
         pup.isLiked = false
