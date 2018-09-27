@@ -13,6 +13,8 @@
 		D03D713B215CAB6A00579F51 /* TinderForDogs2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D03D7139215CAB6A00579F51 /* TinderForDogs2.xcdatamodeld */; };
 		D03D713D215CAB6B00579F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03D713C215CAB6B00579F51 /* Assets.xcassets */; };
 		D03D7140215CAB6B00579F51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03D713E215CAB6B00579F51 /* LaunchScreen.storyboard */; };
+		D0628B38215D4E3300EC6C5A /* TinderDogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0628B37215D4E3300EC6C5A /* TinderDogModel.swift */; };
+		D0628B3B215D732D00EC6C5A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0628B3A215D732D00EC6C5A /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D03D713C215CAB6B00579F51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D03D713F215CAB6B00579F51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D03D7141215CAB6B00579F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0628B37215D4E3300EC6C5A /* TinderDogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderDogModel.swift; sourceTree = "<group>"; };
+		D0628B3A215D732D00EC6C5A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0628B3B215D732D00EC6C5A /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,7 @@
 			children = (
 				D03D7131215CAB6A00579F51 /* TinderForDogs2 */,
 				D03D7130215CAB6A00579F51 /* Products */,
+				D0628B39215D732D00EC6C5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +62,24 @@
 		D03D7131215CAB6A00579F51 /* TinderForDogs2 */ = {
 			isa = PBXGroup;
 			children = (
+				D03D7136215CAB6A00579F51 /* Main.storyboard */,
 				D03D7132215CAB6A00579F51 /* AppDelegate.swift */,
 				D03D7134215CAB6A00579F51 /* ViewController.swift */,
-				D03D7136215CAB6A00579F51 /* Main.storyboard */,
+				D0628B37215D4E3300EC6C5A /* TinderDogModel.swift */,
 				D03D713C215CAB6B00579F51 /* Assets.xcassets */,
 				D03D713E215CAB6B00579F51 /* LaunchScreen.storyboard */,
 				D03D7141215CAB6B00579F51 /* Info.plist */,
 				D03D7139215CAB6A00579F51 /* TinderForDogs2.xcdatamodeld */,
 			);
 			path = TinderForDogs2;
+			sourceTree = "<group>";
+		};
+		D0628B39215D732D00EC6C5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0628B3A215D732D00EC6C5A /* MessageUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0628B38215D4E3300EC6C5A /* TinderDogModel.swift in Sources */,
 				D03D713B215CAB6A00579F51 /* TinderForDogs2.xcdatamodeld in Sources */,
 				D03D7135215CAB6A00579F51 /* ViewController.swift in Sources */,
 				D03D7133215CAB6A00579F51 /* AppDelegate.swift in Sources */,
