@@ -141,18 +141,19 @@ class ViewController: UIViewController {
     
     func fetchSavedPups() -> [Dog] {
         var data:[Dog] = []
+        
         let dogRequest: NSFetchRequest = Dog.fetchRequest()
+        dogRequest.predicate = NSPredicate(format: "isLiked = true")
         do {
             let results = try context.fetch(dogRequest)
             for item in results {
-                if item.isLiked == true {
-                    data.append(item)
-                    }
-                }
+                data.append(item)
             }
+        }
         catch {
             print("Errors are \(error)")
         }
+        
         return data
     }
     
@@ -234,6 +235,8 @@ extension ViewController: MFMailComposeViewControllerDelegate {
         pup.dogID = dogDict["_id"] as? String
         pup.dogName = dogDict["name"] as? String
         pup.image = dogDict["picture"] as? String
+        pup.dogPhone = dogDict["phone"] as? String
+        pup.dogEmail = dogDict["email"] as? String
         pup.dogLat = (dogDict["lat"] as? Double)!
         pup.dogLong = (dogDict["long"] as? Double)!
         pup.isLiked = true

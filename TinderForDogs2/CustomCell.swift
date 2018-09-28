@@ -8,21 +8,27 @@
 
 import UIKit
 
+protocol CustomCellDelegate {
+    func sendEmailButtonClick(_ indexPath: IndexPath)
+    func sendCallButtonClick(_ indexPath: IndexPath)
+}
+
 class CustomCell: UITableViewCell {
     
+    var delegate: CustomCellDelegate?
     
+    var indexPath: IndexPath?
     
     @IBOutlet weak var smallImageView: UIImageView!
     @IBOutlet weak var dogNameLabel: UILabel!
     
     @IBAction func emailButtonClicked(_ sender: UIButton) {
-        print("email button was clicked")
+        delegate?.sendEmailButtonClick(indexPath!)
     }
     
     @IBAction func callButtonClicked(_ sender: UIButton) {
-        print("call button was clicked")
+        delegate?.sendCallButtonClick(indexPath!)
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
