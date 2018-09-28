@@ -10,6 +10,8 @@ import UIKit
 
 class CustomCell: UITableViewCell {
     
+    
+    
     @IBOutlet weak var smallImageView: UIImageView!
     @IBOutlet weak var dogNameLabel: UILabel!
     

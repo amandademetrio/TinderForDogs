@@ -13,6 +13,7 @@ class TableViewController: UITableViewController {
     
     var delegate: ViewController?
     var dogs: [Dog]?
+    //handle cases with empty dogs
 
     override func viewDidLoad() {
         super.viewDidLoad()

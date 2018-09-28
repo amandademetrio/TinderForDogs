@@ -20,10 +20,7 @@ class ViewController: UIViewController {
     
     var dogs: [NSDictionary] = []
     var dogNumber: Int = 0
-    
-    @IBAction func dogButtonClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "AllMessageSegue", sender: nil)
-    }
+    var savedDogs: [Dog] = []
     
     @IBOutlet weak var dogButton: UIButton!
     @IBOutlet weak var dogNameLabel: UILabel!
@@ -50,6 +47,19 @@ class ViewController: UIViewController {
         addYesPupToCoreData(self.dogs[dogNumber])
         loadNextDog()
     }
+    
+    //Segue is currently attached to the button; need to change this
+//    @IBAction func allPupsButtonPressed(_ sender: UIBarButtonItem) {
+//        print("allpupspressed")
+//        savedDogs = fetchSavedPups()
+//        print(savedDogs)
+//        if savedDogs.count == 0 {
+//            print("saved dogs = nil")
+//        }
+//        else {
+//            performSegue(withIdentifier: "AllPupsSegue", sender: nil)
+//        }
+//    }
     
     var locationManager: CLLocationManager = CLLocationManager()
     
@@ -233,6 +243,8 @@ extension ViewController: MFMailComposeViewControllerDelegate {
     //func load next dog
     func loadNextDog() {
         dogNumber += 1
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
         self.viewDidLoad()
     }
     
